@@ -1,0 +1,23 @@
+{
+    "name": "root/from-scratch",
+    "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jeff Cardwell",
+            "email": "jeffcardwell@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "composer/installers": "^1.1",
+        "drupal/core": "^8.1",
+        "drush/drush": "^8.1"
+    },
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    }
+}
