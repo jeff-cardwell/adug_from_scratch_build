@@ -8,9 +8,10 @@
             "email": "jeffcardwell@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
+    "minimum-stability": "alpha",
     "require": {
         "composer/installers": "^1.1",
+        "drupal-composer/drupal-scaffold": "^2.0",
         "drupal/core": "^8.1",
         "drush/drush": "^8.1"
     },
@@ -19,5 +20,13 @@
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
+    },
+    "scripts": {
+      "post-install-cmd": [
+        "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+      ],
+      "post-update-cmd": [
+        "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+      ]
     }
 }
