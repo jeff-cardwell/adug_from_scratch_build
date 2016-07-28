@@ -2,10 +2,16 @@
 
 ## Create a new project *from scratch*
 
-1. Create a directory where your new project will live
+1. Create a directory where your new package will live
 
     ```
     $ mkdir MY_NEW_PROJECT
+    ```
+
+2. Change directory to your new package
+
+    ```
+    $ cd MY_NEW_PROJECT
     ```
 
 2. Initialize new Composer project
@@ -15,7 +21,7 @@
     ```
     1. hit <kbd>enter</kbd> to accept the default
     ```
-        Package name (<vendor>/<name>) [root/MY_NEW_PROJECT]:
+        $ Package name (<vendor>/<name>) [root/MY_NEW_PROJECT]:
     ```
     2. enter a description for your project `*`
     ```
