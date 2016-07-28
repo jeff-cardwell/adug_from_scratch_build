@@ -8,12 +8,16 @@
             "email": "jeffcardwell@gmail.com"
         }
     ],
-    "minimum-stability": "alpha",
+    "minimum-stability": "dev",
+    "prefer-stable" : true,
     "require": {
         "composer/installers": "^1.1",
         "drupal-composer/drupal-scaffold": "^2.0",
         "drupal/core": "^8.1",
         "drush/drush": "^8.1"
+    },
+    "conflict": {
+      "drupal/drupal": "*"
     },
     "repositories": {
         "drupal": {
