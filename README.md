@@ -23,37 +23,36 @@
     1. hit <kbd>enter</kbd> to accept the default
 
     ```
-        $ Package name (<vendor>/<name>) [root/MY_NEW_PROJECT]:
+    Package name (<vendor>/<name>) [root/MY_NEW_PROJECT]:
     ```
 
     2. enter a description for your project `*`
 
     ```
-        Description []:
+    Description []:
     ```
 
     3. enter your author information `*`
 
     ```
-        Author [FIRST_NAME LAST_NAME <EMAIL@DOMAIN.com>, n to skip]:
+    Author [FIRST_NAME LAST_NAME <EMAIL@DOMAIN.com>, n to skip]:
     ```
 
     4. enter your minimum stability choice (we choose alpha `**`)
 
     ```
-        Minimum Stability []: alpha
+    Minimum Stability []: alpha
     ```
 
     5. enter the package type here (we choose project `***`)
 
     ```
-        Package Type (e.g. library, project, metapackage, composer-plugin) []: project
+    Package Type (e.g. library, project, metapackage, composer-plugin) []: project
     ```
 
     6. license type for the package `*`
-
     ```
-        License []:
+    License []:
     ```
 
     7. Insert more steps
@@ -70,7 +69,7 @@
     ```
     $ git clone git@gitlab.com:adug/from-scratch.git MY_NEW_PROJECT
     ```
-    
+
 2. Change directory to your local copy
 
     ```
