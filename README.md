@@ -51,10 +51,10 @@
     ```
 
     6. license type for the package `*`
+
     ```
     License []:
     ```
-
     7. Insert more steps
 
     8. Wait.. :fingers_crossed: :coffee:
