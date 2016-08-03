@@ -1,20 +1,15 @@
-# ADUG Composer Install Demo
+# ADUG Basic Drupal Composer Install Demo
 
 ## How to use this repository
 
-1. Clone the repository
+1. Clone the repository and change directory
 
     ```
     $ git clone git@gitlab.com:adug/from-scratch.git MY_NEW_PROJECT
-    ```
-
-2. Change directory to your local copy
-
-    ```
     $ cd MY_NEW_PROJECT
     ```
 
-3. Install the project (will install Drupal as a dependency)
+2. Install the project (will install Drupal as a dependency)
 
     ```
     ../MY_NEW_PROJECT$ composer install
@@ -29,17 +24,17 @@
     $ cd MY_NEW_PROJECT
     ```
 
-2. Initialize new Composer project
+2. Initialize a new Composer project
 
     https://getcomposer.org/doc/03-cli.md#init
 
     ```
     $ composer init
     ```
-    -- Note that you can skip the configuration questions by
-        using ```composer init --no-interaction``` instead
 
     ###The following configuration wizard will be initiated
+    -- Note that you can skip the configuration questions by
+            using ```composer init --no-interaction``` instead
 
     ```
     Package name (<vendor>/<name>) [root/MY_NEW_PROJECT]:
@@ -65,22 +60,72 @@
     ```
     $ composer config repositories.drupal composer https://packages.drupal.org/8
     ```
-    -- Note
+    -- Note that this is needed because Drupal packages are not not indexed by the "official" Composer packagist
+    repository.  D.O. has made this alternative method available.  It seems like it will be the "official" Drupal.org
+    supported way going forward.
 
     https://github.com/drupal-composer/drupal-project/issues/175
+
     https://www.drupal.org/node/2718229
 
 4. Require the following packages
     ```
     $ composer require composer/installers
-    $ composer require drupal-composer/drupal-scaffold
     $ composer require drupal/core
+    $ composer require drupal-composer/drupal-scaffold
     $ composer require drush/drush
     ```
     --Note what each of these is for...
 
-    1. drupal-scaffold is because of drupal/core
-    2. why do we need a "local" drush installation?
+    1. `$ composer require composer/installers`
+
+        "This is for PHP package authors to require in their composer.json. It will install their package to the correct
+        location based on the specified package type."  Basically it will tell Composer what directory your required
+        dependencies should be installed into.
+
+        https://github.com/composer/installers
+
+        This list is of the pre-defined types of Drupal packages that ```composer/installers``` allow you to
+        use (it can be found in the link above):
+
+        - `drupal-core`
+        - `drupal-module`
+        - `drupal-theme`
+        - `drupal-library`
+        - `drupal-profile`
+        - `drupal-drush`
+
+    2. `$ composer require drupal/core`
+
+        "This is a Git subtree split of Drupal 8's core directory which can be used to build the directory structure for
+        a Drupal site and has the following advantages over pulling in the entire upstream Drupal repository:
+
+        - All the components of the Drupal site including Drupal, contributed modules and themes, as well as external
+            libraries can be pulled in via Composer
+        - Drupal and any external libraries can be bootstrapped via Composer (i.e. without installing any modules for
+            the external libraries)
+        - One has full control over index.php, .htaccess, robots.txt, etc. as those files will not be overridden by a
+            Drupal core update"
+            [drupal-core project README.md](https://github.com/drupal-composer/drupal-core/blob/master/README.md)
+
+        Using this package instead of `drupal/drupal` essentially allows you separate updates of core from updates of
+        scaffolding files.
+
+    3. `$ composer require drupal-composer/drupal-scaffold`
+
+        "Composer plugin for automatically downloading Drupal scaffold files (like index.php, update.php, …) when using
+        drupal/core via Composer."
+        [drupal-scaffold project README.md](https://github.com/drupal-composer/drupal-scaffold/blob/master/README.md)
+
+        This plugin allows you to update the Drupal core files *only* (without updating various scaffolding files that
+        you may have customized).  You'll have to read the documentation at the above link to get more info.  We won't
+        be manipulating the default actions at this time, but you might want investigate that depending on how your
+        workflow is implemented.
+
+
+
+
+    3. why do we need a "local" drush installation?
 
 5. Create a .gitignore file
     1. exclude vendor
