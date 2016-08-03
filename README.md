@@ -1,69 +1,7 @@
 # ADUG Composer Install Demo
 
-## Create a new project *from scratch*
+## How to use this repository
 
-1. Create a directory where your new package will live
-
-    ```
-    $ mkdir MY_NEW_PROJECT
-    ```
-
-2. Change directory to your new package
-
-    ```
-    $ cd MY_NEW_PROJECT
-    ```
-
-2. Initialize new Composer project
-
-    ```
-    $ composer init
-    ```
-
-    1. hit <kbd>enter</kbd> to accept the default
-
-    ```
-    Package name (<vendor>/<name>) [root/MY_NEW_PROJECT]:
-    ```
-
-    2. enter a description for your project `*`
-
-    ```
-    Description []:
-    ```
-
-    3. enter your author information `*`
-
-    ```
-    Author [FIRST_NAME LAST_NAME <EMAIL@DOMAIN.com>, n to skip]:
-    ```
-
-    4. enter your minimum stability choice (we choose alpha `**`)
-
-    ```
-    Minimum Stability []: alpha
-    ```
-
-    5. enter the package type here (we choose project `***`)
-
-    ```
-    Package Type (e.g. library, project, metapackage, composer-plugin) []: project
-    ```
-
-    6. license type for the package `*`
-
-    ```
-    License []:
-    ```
-    7. Insert more steps
-
-    8. Wait.. :fingers_crossed: :coffee:
-
-    `*` These settings are for informational purposes within your automatically generated composer.json file
-
-    `**` Put relevent information about stability choices and may a link here
-
-## Installation Instructions
 1. Clone the repository
 
     ```
@@ -81,3 +19,74 @@
     ```
     ../MY_NEW_PROJECT$ composer install
     ```
+
+## How to re-create these files without cloning the repository
+
+1. Create a directory where your new Composer package will live, and change to that directory
+
+    ```
+    $ mkdir MY_NEW_PROJECT
+    $ cd MY_NEW_PROJECT
+    ```
+
+2. Initialize new Composer project
+
+    https://getcomposer.org/doc/03-cli.md#init
+
+    ```
+    $ composer init
+    ```
+    -- Note that you can skip the configuration questions by
+        using `composer init --no-interaction` instead
+
+    ###The following configuration wizard will be initiated
+
+    ```
+    Package name (<vendor>/<name>) [root/MY_NEW_PROJECT]:
+    Description []:
+    Author [FIRST_NAME LAST_NAME <EMAIL@DOMAIN.com>, n to skip]:
+    Minimum Stability []:
+    Package Type (e.g. library, project, metapackage, composer-plugin) []:
+    License []:
+    ```
+
+    The answers used for the this project follow:
+
+    ```
+    Package name (<vendor>/<name>) [root/MY_NEW_PROJECT]: adug/from-scratch
+    Description []:
+    Author [FIRST_NAME LAST_NAME <EMAIL@DOMAIN.com>, n to skip]:
+    Minimum Stability []: alpha
+    Package Type (e.g. library, project, metapackage, composer-plugin) []: project
+    License []:
+    ```
+3. Require the Drupal package repository
+
+    ```
+    $ composer config repositories.drupal composer https://packages.drupal.org/8
+    ```
+    -- Note
+
+    https://github.com/drupal-composer/drupal-project/issues/175
+    https://www.drupal.org/node/2718229
+
+4. Require the following packages
+    ```
+    $ composer require composer/installers
+    $ composer require drupal-composer/drupal-scaffold
+    $ composer require drupal/core
+    $ composer require drush/drush
+    ```
+    --Note what each of these is for...
+        drupal-scaffold is because of drupal/core
+
+
+1. Insert more steps
+
+Wait.. :fingers_crossed: :coffee:
+
+    `*` These settings are for informational purposes within your automatically generated composer.json file
+
+    `**` Put relevent information about stability choices and may a link here
+
+## Installation Instructions
