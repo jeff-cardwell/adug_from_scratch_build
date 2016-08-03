@@ -37,7 +37,7 @@
     $ composer init
     ```
     -- Note that you can skip the configuration questions by
-        using `composer init --no-interaction` instead
+        using ```composer init --no-interaction``` instead
 
     ###The following configuration wizard will be initiated
 
@@ -78,7 +78,13 @@
     $ composer require drush/drush
     ```
     --Note what each of these is for...
-        drupal-scaffold is because of drupal/core
+
+    1. drupal-scaffold is because of drupal/core
+    2. why do we need a "local" drush installation?
+
+5. Create a .gitignore file
+    1. exclude vendor
+    2. exclude core
 
 
 1. Insert more steps
