@@ -1,5 +1,5 @@
 {
-    "name": "root/from-scratch",
+    "name": "adug/from-scratch",
     "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
     "type": "project",
     "authors": [
