@@ -16,7 +16,7 @@
 
 1. Create a directory where your new Composer package will live, and change to that directory
 
-    ```
+    ```shell
     $ mkdir MY_NEW_PROJECT
     $ cd MY_NEW_PROJECT
     ```
@@ -25,7 +25,7 @@
 
     https://getcomposer.org/doc/03-cli.md#init
 
-    ```
+    ```shell
     $ composer init
     ```
 
@@ -48,7 +48,7 @@
 
     The answers used for the this project follow:
 
-    ```
+    ```shell
     Package name (<vendor>/<name>) [root/MY_NEW_PROJECT]: adug/from-scratch
     Description []: A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)
     Author [FIRST_NAME LAST_NAME <EMAIL@DOMAIN.com>, n to skip]:
@@ -58,7 +58,7 @@
     ```
 3. Require the Drupal package repository
 
-    ```
+    ```shell
     $ composer config repositories.drupal composer https://packages.drupal.org/8
     ```
     -- Note that this is needed because Drupal packages are not not indexed by the "official" Composer packagist
@@ -72,7 +72,7 @@
     [support for cmd-line installer support of Drupal.org beta repos, instead of packagist](https://github.com/drupal-composer/drupal-project/issues/175)
 
 4. Require the following packages
-    ```
+    ```shell
     $ composer require composer/installers
     $ composer require drupal/core
     $ composer require drupal-composer/drupal-scaffold
@@ -206,7 +206,7 @@
     version.
 
 6.  Prevent conflict between `drupal/drupal` dependencies and `drupal/core` dependencies
-    ```
+    ```json
         "conflict": {
              "drupal/drupal": "*"
         }
@@ -222,7 +222,7 @@
     In cany case, it might help and it won't hurt.
 
 7. Add calls to the `scaffold` plugin after `composer update` is invoked and after `composer install` is invoked.  This was inspired by [acquia/lightning-project](https://github.com/acquia/lightning-project/blob/8.x/composer.json) and [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project/blob/8.x/composer.json) `.json` files.
-    ```
+    ```json
         "scripts": {
             "post-install-cmd": [
                 "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
@@ -282,7 +282,7 @@
 
 11. The following files are the *only* ones that you *need* in your version control to start with.  Different scenarios will require you to add additional files.  Do *not* include your `vendor` or `core` directories.  That is why they were put in our `.gitignore` file.
 
-    ```
+    ```shell
     composer.json
     composer.lock
     .gitignore
@@ -293,15 +293,15 @@
 
 1. Clone the repository and change directory
 
-    ```
-    $ git clone git://github.com/Jeff-Cardwell/adug_from_scratch_profile.git MY_NEW_PROJECT
+    ```shell
+    $ git clone git://github.com/Jeff-Cardwell/adug_from_scratch_build.git MY_NEW_PROJECT
     $ cd MY_NEW_PROJECT
     ```
 
 2. Install the project (will install Drupal as a dependency)
 
-    ```
-    ../MY_NEW_PROJECT$ composer install
+    ```shell
+    MY_NEW_PROJECT$ composer install
     ```
 
 3. Install Drupal
