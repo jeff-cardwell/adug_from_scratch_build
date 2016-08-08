@@ -305,4 +305,4 @@
     ```
 
 3. Install Drupal
-    [Instructions from earlier](#how-to-call-a-site-specific-install-of-Drush-when-installing-drupal)
+    [Instructions from earlier](#how-to-call-a-site-specific-install-of-drush-when-installing-drupal)
