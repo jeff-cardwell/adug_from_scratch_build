@@ -245,7 +245,7 @@
     "authors": [
         {
             "name": "Jeff Cardwell",
-            "email": "jeffcardwell@gmail.com"
+            "email": "jeffcardwellbusiness@gmail.com"
         }
     ],
     "minimum-stability": "dev",
