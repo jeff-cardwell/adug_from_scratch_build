@@ -294,7 +294,7 @@
 1. Clone the repository and change directory
 
     ```
-    $ git clone https://github.com/Jeff-Cardwell/adug_from_scratch_profile.git MY_NEW_PROJECT
+    $ git clone git://github.com/Jeff-Cardwell/adug_from_scratch_profile.git MY_NEW_PROJECT
     $ cd MY_NEW_PROJECT
     ```
 
