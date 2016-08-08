@@ -1,4 +1,4 @@
-# ADUG Basic Drupal Composer Install Demo
+# ADUG Basic Drupal Composer Install
 
 1. [The how and why this repository looks like it does](#how-to-re-create-these-files-without-cloning-the-repository)
 2. [How to quickly utilize this repository to get your Drupal 8 site up and running.](#how-to-use-this-repository)
@@ -147,6 +147,14 @@
     ```
 
     -- Note the location of the commas when all of these code snippets are copied into your file
+
+### Your composer.json file should look something like this:
+
+```json
+{
+
+}
+```
 
 ### These items can be added by using the command line
 
