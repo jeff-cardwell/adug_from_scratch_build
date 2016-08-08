@@ -85,12 +85,12 @@
         > This is for PHP package authors to require in their composer.json. It will install their package to the correct
         location based on the specified package type."
 
-        Basically it will tell Composer what directory your required
+        Basically this tells Composer what directory your required
         dependencies should be installed into.
 
         https://github.com/composer/installers
 
-        This list is of the pre-defined types of Drupal packages that ```composer/installers``` allow you to
+        This list is of the pre-defined types of *Drupal* packages that ```composer/installers``` allows you to
         use (it can be found in the link above).  You'll be using these whenever you are creating composer.json files
         (for modules, themes, and whatnot) as the package `"type":`.
         - `drupal-core`
@@ -131,13 +131,15 @@
 
     4. `$ composer require drush/drush`
 
-        Why do we need a "per-site" Drush installation?  In short, if we want to develop Drupal 7 and Drupal 8 projects on the same development server, it's fairly necessary.  Additionally, it may be necessary for more "advanced" development needs that utilize various Drush dependencies. *Note how to call drush*
+        Why do we need a "per-site" Drush installation?  In short, if we want to develop Drupal 7 and Drupal 8 projects on the same development server, it's fairly necessary.  Additionally, it may be necessary for more "advanced" development needs that utilize various Drush dependencies.
 
         [Avoiding “Dependency Hell” with Site-Local Drush](https://pantheon.io/blog/avoiding-dependency-hell-site-local-drush)
 
-        [Discussion on a different article](https://modulesunraveled.com/comment/404#comment-404)
+        [Install Drush 7 and 8 Side-by-Side and Automatically Switch Versions Based on Each Project | Modules Unraveled](https://modulesunraveled.com/comment/404#comment-404)
 
-        How to call a site-specific install of Drush when installing Drupal. [Goodbye Drush Make, Hello Composer!](https://www.lullabot.com/articles/goodbye-drush-make-hello-composer)
+        ### How to call a site-specific install of Drush when installing Drupal...
+
+        [Goodbye Drush Make, Hello Composer!](https://www.lullabot.com/articles/goodbye-drush-make-hello-composer)
 
         -- Note that Drush is called from the `bin` directory, basically
 
@@ -197,10 +199,10 @@
 
     [Composer: required packages with differing levels of minimum-stability](http://stackoverflow.com/questions/23086204/composer-required-packages-with-differing-levels-of-minimum-stability)
 
-    This means that Composer will always try to use a "stable" release first. Available options (in order
+    This means that Composer will always try to install a "stable" release first. Available options (in order
     of stability) are `dev`, `alpha`, `beta`, `RC`, and `stable`
     ([Minimum Stability](https://getcomposer.org/doc/04-schema.md#minimum-stability)). If there is no available
-    dependency that from `beta` onward (which are what Composer considers "stable"), it will use an `alpha` or a `dev`
+    dependency from `beta` onward (which are what Composer considers "stable"), it will use an `alpha` or a `dev`
     version.
 
 6.  Prevent conflict between `drupal/drupal` dependencies and `drupal/core` dependencies
@@ -231,7 +233,7 @@
         }
     ```
 
-    -- Note the location of the commas when these snippets of code are copied into your file
+    -- Note the location of the commas when all of these code snippets are copied into your file
 
 ### Now, your composer.json file should look something like this:
 
@@ -278,7 +280,13 @@
     1. exclude vendor directory
     2. exclude core directory
 
+11. The following files are the *only* ones that you *need* in your version control to start with.  Different scenarios will require you to add additional files.  Do *not* include your `vendor` or `core` directories.  That is why they were put in our `.gitignore` file.
 
+    ```
+    composer.json
+    composer.lock
+    .gitignore
+    ```
 
 
 ## How to use this repository
@@ -286,7 +294,7 @@
 1. Clone the repository and change directory
 
     ```
-    $ git clone git@gitlab.com:adug/from-scratch.git MY_NEW_PROJECT
+    $ git clone https://github.com/Jeff-Cardwell/adug_from_scratch_profile.git MY_NEW_PROJECT
     $ cd MY_NEW_PROJECT
     ```
 
@@ -295,3 +303,6 @@
     ```
     ../MY_NEW_PROJECT$ composer install
     ```
+
+3. Install Drupal
+    [Instructions from earlier](#how-to-call-a-site-specific-install-of-Drush-when-installing-Drupal)
