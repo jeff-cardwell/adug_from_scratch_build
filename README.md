@@ -71,12 +71,12 @@
 
     {
         "name": "adug/from-scratch",
-        "description": "Blah blah blah",
+        "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
         "type": "project",
         "authors": [
             {
-                "name": "Jeff Cardwell",
-                "email": "jeffcardwellbusiness@gmail.com"
+                "name": "Your Name",
+                "email": "address@domain.com"
             }
         ],
         "minimum-stability": "dev",
@@ -90,9 +90,7 @@
     ```shell
     $ composer config repositories.drupal composer https://packages.drupal.org/8
     ```
-    -- Note that this is needed because Drupal packages are not not indexed by the "official" Composer packagist
-    repository (and most likely they never *will* be - for a variety of reasons).  D.O. has made this alternative method available.  It seems like it will be the "official" Drupal.org
-    supported way going forward.
+    -- Note that this is needed because Drupal packages are not not indexed by the "official" Composer packagist repository (and most likely they never *will* be - for a variety of reasons).  D.O. has made this alternative supported way going forward.
 
     [Using Composer to install Drupal packages through Drupal.org](https://www.drupal.org/node/2718229)
 
@@ -106,17 +104,11 @@
 
     `"prefer-stable" : true`
 
-    > When this is enabled, Composer will prefer more stable packages over unstable ones when finding compatible
-    stable packages is possible. If you require a dev version or only alphas are available for a package, those
-    will still be selected granted that the minimum-stability allows for it.
+    > When this is enabled, Composer will prefer more stable packages over unstable ones when finding compatible stable packages is possible. If you require a dev version or only alphas are available for a package, those will still be selected granted that the minimum-stability allows for it.
 
     [Composer: required packages with differing levels of minimum-stability](http://stackoverflow.com/questions/23086204/composer-required-packages-with-differing-levels-of-minimum-stability)
 
-    This means that Composer will always try to install a "stable" release first. Available options (in order
-    of stability) are `dev`, `alpha`, `beta`, `RC`, and `stable`
-    ([Minimum Stability](https://getcomposer.org/doc/04-schema.md#minimum-stability)). If there is no available
-    dependency from `beta` onward (which are what Composer considers "stable"), it will use an `alpha` or a `dev`
-    version.
+    This means that Composer will always try to install a "stable" release first. Available options (in order of stability) are `dev`, `alpha`, `beta`, `RC`, and `stable` ([Minimum Stability](https://getcomposer.org/doc/04-schema.md#minimum-stability)). If there is no available dependency from `beta` onward (which are what Composer considers "stable"), it will use an `alpha` or a `dev` version because we have set our `minimum-stability` to dev (and `alpha` and `dev` are both "great than or equal" to that setting).
 
 
 
@@ -158,17 +150,13 @@
 
     1. `$ composer require composer/installers`
 
-        > This is for PHP package authors to require in their composer.json. It will install their package to the correct
-        location based on the specified package type."
+        > This is for PHP package authors to require in their composer.json. It will install their package to the correct location based on the specified package type."
 
-        Basically this tells Composer what directory your required
-        dependencies should be installed into.
+        Basically this tells Composer what directory your required dependencies should be installed into.
 
         https://github.com/composer/installers
 
-        This list is of the pre-defined types of *Drupal* packages that ```composer/installers``` allows you to
-        use (it can be found in the link above).  You'll be using these whenever you are creating composer.json files
-        (for modules, themes, and whatnot) as the package `"type":`.
+        This list is of the pre-defined types of *Drupal* packages that `composer/installers` allows you to use (it can be found in the link above).  You'll be using these whenever you are creating composer.json files (for modules, themes, and whatnot) as the package `"type":`.
         - `drupal-core`
         - `drupal-module`
         - `drupal-theme`
@@ -178,21 +166,16 @@
 
     2. `$ composer require drupal/core`
 
-        > This is a Git subtree split of Drupal 8's core directory which can be used to build the directory structure
-        for a Drupal site and has the following advantages over pulling in the entire upstream Drupal repository:
-        > - All the components of the Drupal site including Drupal, contributed modules and themes, as well as external
-            libraries can be pulled in via Composer
-        > - Drupal and any external libraries can be bootstrapped via Composer (i.e. without installing any modules for
-            the external libraries)
-        > - One has full control over index.php, .htaccess, robots.txt, etc. as those files will not be overridden by a
-            Drupal core update"
+        > This is a Git subtree split of Drupal 8's core directory which can be used to build the directory structure for a Drupal site and has the following advantages over pulling in the entire upstream Drupal repository:
+        > - All the components of the Drupal site including Drupal, contributed modules and themes, as well as external libraries can be pulled in via Composer
+        > - Drupal and any external libraries can be bootstrapped via Composer (i.e. without installing any modules for the external libraries)
+        > - One has full control over index.php, .htaccess, robots.txt, etc. as those files will not be overridden by a Drupal core update"
 
         [drupal-core project README.md](https://github.com/drupal-composer/drupal-core/blob/master/README.md)
 
         [Clarify why `drupal/core` is the preferred approach](https://github.com/drupal-composer/drupal-project/issues/172)
 
-        Using this package instead of `drupal/drupal` essentially allows you to separate updates of core from updates of
-        scaffolding files.
+        Using this package instead of `drupal/drupal` essentially allows you to separate updates of core from updates of scaffolding files.
 
     3. `$ composer require drupal-composer/drupal-scaffold`
 
