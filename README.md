@@ -1,4 +1,4 @@
-# ADUG Basic Drupal Composer Install Demo
+# ADUG Basic Drupal Composer Install
 
 1. [The how and why this repository looks like it does](#how-to-re-create-these-files-without-cloning-the-repository)
 2. [How to quickly utilize this repository to get your Drupal 8 site up and running.](#how-to-use-this-repository)
@@ -45,8 +45,16 @@
         - stuff
     - `License []:`
         - stuff
+    -
+    ```
+      Define your dependencies.
 
-    The answers used for the this project follow:
+      Would you like to define your dependencies (require) interactively [yes]?
+    ```
+    - `Would you like to define your dev dependencies (require-dev) interactively [yes]?`
+        - stuff
+
+    The answers used for this project follow:
 
     ```shell
     Package name (<vendor>/<name>) [root/MY_NEW_PROJECT]: adug/from-scratch
@@ -55,6 +63,27 @@
     Minimum Stability []: dev
     Package Type (e.g. library, project, metapackage, composer-plugin) []: project
     License []:
+
+    Define your dependencies.
+
+          Would you like to define your dependencies (require) interactively [yes]? no
+          Would you like to define your dev dependencies (require-dev) interactively [yes]? no
+
+    {
+        "name": "adug/from-scratch",
+        "description": "Blah blah blah",
+        "type": "project",
+        "authors": [
+            {
+                "name": "Jeff Cardwell",
+                "email": "jeffcardwellbusiness@gmail.com"
+            }
+        ],
+        "minimum-stability": "dev",
+        "require": {}
+    }
+
+    Do you confirm generation [yes]? yes
     ```
 3. Require the Drupal package repository
 
@@ -71,7 +100,54 @@
 
     [support for cmd-line installer support of Drupal.org beta repos, instead of packagist](https://github.com/drupal-composer/drupal-project/issues/175)
 
-4. Require the following packages
+### We need to add the following item manually using a text editor before we declare our dependencies
+
+4.  [Prefer Stable](https://getcomposer.org/doc/04-schema.md#prefer-stable) Setting
+
+    `"prefer-stable" : true`
+
+    > When this is enabled, Composer will prefer more stable packages over unstable ones when finding compatible
+    stable packages is possible. If you require a dev version or only alphas are available for a package, those
+    will still be selected granted that the minimum-stability allows for it.
+
+    [Composer: required packages with differing levels of minimum-stability](http://stackoverflow.com/questions/23086204/composer-required-packages-with-differing-levels-of-minimum-stability)
+
+    This means that Composer will always try to install a "stable" release first. Available options (in order
+    of stability) are `dev`, `alpha`, `beta`, `RC`, and `stable`
+    ([Minimum Stability](https://getcomposer.org/doc/04-schema.md#minimum-stability)). If there is no available
+    dependency from `beta` onward (which are what Composer considers "stable"), it will use an `alpha` or a `dev`
+    version.
+
+
+
+### Your composer.json file should look something like this:
+
+```json
+{
+    "name": "adug/from-scratch",
+    "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Your Name",
+            "email": "address@domain.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {},
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    }
+}
+```
+
+### These items may be added by using the command line
+
+7. Require the following packages
     ```shell
     $ composer require composer/installers
     $ composer require drupal/core
@@ -158,7 +234,8 @@
         >
         > Navigate to EXAMPLE.COM/install to provide the database credentials and follow the instructions.
 
-### If you examine your composer.json file in a text editor at this point, it should look something like the following:
+
+### Now, your composer.json file should look something like this:
 
 ```json
 {
@@ -167,15 +244,16 @@
     "type": "project",
     "authors": [
         {
-            "name": "Jeff Cardwell",
-            "email": "jeffcardwellbusiness@gmail.com"
+            "name": "Your Name",
+            "email": "address@domain.com"
         }
     ],
     "minimum-stability": "dev",
+    "prefer-stable": true,
     "require": {
         "composer/installers": "^1.1",
-        "drupal-composer/drupal-scaffold": "^2.0",
         "drupal/core": "^8.1",
+        "drupal-composer/drupal-scaffold": "^2.0",
         "drush/drush": "^8.1"
     },
     "repositories": {
@@ -185,27 +263,12 @@
         }
     }
 }
+
 ```
 
-### There are a few more items that we need to add, but we must add them manually using a text editor
+### Now we need to add the following items manually with a text editor
 
-5.  [Prefer Stable](https://getcomposer.org/doc/04-schema.md#prefer-stable) Setting
-
-    `"prefer-stable" : true`
-
-    > When this is enabled, Composer will prefer more stable packages over unstable ones when finding compatible
-    stable packages is possible. If you require a dev version or only alphas are available for a package, those
-    will still be selected granted that the minimum-stability allows for it.
-
-    [Composer: required packages with differing levels of minimum-stability](http://stackoverflow.com/questions/23086204/composer-required-packages-with-differing-levels-of-minimum-stability)
-
-    This means that Composer will always try to install a "stable" release first. Available options (in order
-    of stability) are `dev`, `alpha`, `beta`, `RC`, and `stable`
-    ([Minimum Stability](https://getcomposer.org/doc/04-schema.md#minimum-stability)). If there is no available
-    dependency from `beta` onward (which are what Composer considers "stable"), it will use an `alpha` or a `dev`
-    version.
-
-6.  Prevent conflict between `drupal/drupal` dependencies and `drupal/core` dependencies
+5.  Prevent conflict between `drupal/drupal` dependencies and `drupal/core` dependencies
     ```json
         "conflict": {
              "drupal/drupal": "*"
@@ -221,7 +284,7 @@
 
     In cany case, it might help and it won't hurt.
 
-7. Add calls to the `scaffold` plugin after `composer update` is invoked and after `composer install` is invoked.  This was inspired by [acquia/lightning-project](https://github.com/acquia/lightning-project/blob/8.x/composer.json) and [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project/blob/8.x/composer.json) `.json` files.
+6. Add calls to the `scaffold` plugin after `composer update` is invoked and after `composer install` is invoked.  This was inspired by [acquia/lightning-project](https://github.com/acquia/lightning-project/blob/8.x/composer.json) and [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project/blob/8.x/composer.json) `.json` files.
     ```json
         "scripts": {
             "post-install-cmd": [
@@ -244,8 +307,8 @@
     "type": "project",
     "authors": [
         {
-            "name": "Jeff Cardwell",
-            "email": "jeffcardwellbusiness@gmail.com"
+            "name": "Your Name",
+            "email": "address@domain.com"
         }
     ],
     "minimum-stability": "dev",
@@ -276,11 +339,11 @@
 }
 ```
 
-10. Create a .gitignore file
+8. Create a .gitignore file
     1. exclude vendor directory
     2. exclude core directory
 
-11. The following files are the *only* ones that you *need* in your version control to start with.  Different scenarios will require you to add additional files.  Do *not* include your `vendor` or `core` directories.  That is why they were put in our `.gitignore` file.
+9. The following files are the *only* ones that you *need* in your version control to start with.  Different scenarios will require you to add additional files.  Do *not* include your `vendor` or `core` directories.  That is why they were put in our `.gitignore` file.
 
     ```shell
     composer.json
@@ -305,4 +368,4 @@
     ```
 
 3. Install Drupal
-    [Instructions from earlier](#how-to-call-a-site-specific-install-of-Drush-when-installing-Drupal)
+    [Instructions from earlier](#how-to-call-a-site-specific-install-of-drush-when-installing-drupal)
