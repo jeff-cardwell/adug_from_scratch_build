@@ -125,12 +125,12 @@
 ```json
 {
     "name": "adug/from-scratch",
-    "description": "blah blah blah",
+    "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
     "type": "project",
     "authors": [
         {
-            "name": "Jeff Cardwell",
-            "email": "jeffcardwellbusiness@gmail.com"
+            "name": "Your Name",
+            "email": "address@domain.com"
         }
     ],
     "minimum-stability": "dev",
@@ -240,12 +240,12 @@
 ```json
 {
     "name": "adug/from-scratch",
-    "description": "blah blah blah",
+    "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
     "type": "project",
     "authors": [
         {
-            "name": "Jeff Cardwell",
-            "email": "jeffcardwellbusiness@gmail.com"
+            "name": "Your Name",
+            "email": "address@domain.com"
         }
     ],
     "minimum-stability": "dev",
@@ -307,8 +307,8 @@
     "type": "project",
     "authors": [
         {
-            "name": "Jeff Cardwell",
-            "email": "jeffcardwellbusiness@gmail.com"
+            "name": "Your Name",
+            "email": "address@domain.com"
         }
     ],
     "minimum-stability": "dev",
