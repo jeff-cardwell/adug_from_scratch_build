@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "c29a9b4259262d5b25520a69ec573447",
-    "content-hash": "270ba7e57d2c21d6a8c13c6894e3fdc9",
+    "hash": "2a3e619c98f1bbf829c358d9b4444393",
+    "content-hash": "f23b83d03305c4c877a43638fe159012",
     "packages": [
         {
             "name": "composer/installers",
@@ -743,16 +743,16 @@
         },
         {
             "name": "drupal/core",
-            "version": "8.1.7",
+            "version": "8.1.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/drupal-composer/drupal-core.git",
-                "reference": "3870ff6a47e723e3dce857473329d2f143e88d93"
+                "reference": "3f06f574ccc1e18b61ef150780fb1900c2f40abc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/3870ff6a47e723e3dce857473329d2f143e88d93",
-                "reference": "3870ff6a47e723e3dce857473329d2f143e88d93",
+                "url": "https://api.github.com/repos/drupal-composer/drupal-core/zipball/3f06f574ccc1e18b61ef150780fb1900c2f40abc",
+                "reference": "3f06f574ccc1e18b61ef150780fb1900c2f40abc",
                 "shasum": ""
             },
             "require": {
@@ -761,7 +761,7 @@
                 "doctrine/common": "2.5.*",
                 "easyrdf/easyrdf": "0.9.*",
                 "egulias/email-validator": "1.2.*",
-                "guzzlehttp/guzzle": "~6.2",
+                "guzzlehttp/guzzle": "^6.2.1",
                 "masterminds/html5": "~2.1",
                 "paragonie/random_compat": "~1.0",
                 "php": ">=5.5.9",
@@ -818,9 +818,11 @@
                 "drupal/core-filesystem": "self.version",
                 "drupal/core-gettext": "self.version",
                 "drupal/core-graph": "self.version",
+                "drupal/core-http-foundation": "self.version",
                 "drupal/core-php-storage": "self.version",
                 "drupal/core-plugin": "self.version",
                 "drupal/core-proxy-builder": "self.version",
+                "drupal/core-render": "self.version",
                 "drupal/core-serialization": "self.version",
                 "drupal/core-transliteration": "self.version",
                 "drupal/core-utility": "self.version",
@@ -909,7 +911,7 @@
                 "GPL-2.0+"
             ],
             "description": "Drupal is an open source content management platform powering millions of websites and applications.",
-            "time": "2016-07-18 15:01:43"
+            "time": "2016-08-03 14:09:08"
         },
         {
             "name": "drush/drush",
@@ -1698,16 +1700,16 @@
         },
         {
             "name": "psr/http-message",
-            "version": "1.0",
+            "version": "1.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/http-message.git",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298"
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/http-message/zipball/85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
-                "reference": "85d63699f0dbedb190bbd4b0d2b9dc707ea4c298",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
                 "shasum": ""
             },
             "require": {
@@ -1735,6 +1737,7 @@
                 }
             ],
             "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
             "keywords": [
                 "http",
                 "http-message",
@@ -1743,7 +1746,7 @@
                 "request",
                 "response"
             ],
-            "time": "2015-05-04 20:22:00"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "psr/log",
