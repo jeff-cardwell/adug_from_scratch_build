@@ -100,7 +100,7 @@
 
     [support for cmd-line installer support of Drupal.org beta repos, instead of packagist](https://github.com/drupal-composer/drupal-project/issues/175)
 
-### There are a few items that we need to add manually using a text editor
+### We need to add the following item manually using a text editor before we declare our dependencies
 
 4.  [Prefer Stable](https://getcomposer.org/doc/04-schema.md#prefer-stable) Setting
 
@@ -118,45 +118,34 @@
     dependency from `beta` onward (which are what Composer considers "stable"), it will use an `alpha` or a `dev`
     version.
 
-5.  Prevent conflict between `drupal/drupal` dependencies and `drupal/core` dependencies
-    ```json
-        "conflict": {
-             "drupal/drupal": "*"
-        }
-    ```
-    This may not be necessary at all anymore...
 
-    [Use packages.drupal.org repository](https://github.com/drupal-composer/drupal-project/pull/159#issuecomment-232159891)
-
-    But it definitely does not have to be `replace` instead...
-
-    [support for cmd-line installer support of Drupal.org beta repos, instead of packagist](https://github.com/drupal-composer/drupal-project/issues/175#issuecomment-232169598)
-
-    In cany case, it might help and it won't hurt.
-
-6. Add calls to the `scaffold` plugin after `composer update` is invoked and after `composer install` is invoked.  This was inspired by [acquia/lightning-project](https://github.com/acquia/lightning-project/blob/8.x/composer.json) and [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project/blob/8.x/composer.json) `.json` files.
-    ```json
-        "scripts": {
-            "post-install-cmd": [
-                "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-            ],
-            "post-update-cmd": [
-                "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-            ]
-        }
-    ```
-
-    -- Note the location of the commas when all of these code snippets are copied into your file
 
 ### Your composer.json file should look something like this:
 
 ```json
 {
-
+    "name": "adug/from-scratch",
+    "description": "blah blah blah",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jeff Cardwell",
+            "email": "jeffcardwellbusiness@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {},
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    }
 }
 ```
 
-### These items can be added by using the command line
+### These items may be added by using the command line
 
 7. Require the following packages
     ```shell
@@ -245,6 +234,69 @@
         >
         > Navigate to EXAMPLE.COM/install to provide the database credentials and follow the instructions.
 
+
+### Now, your composer.json file should look something like this:
+
+```json
+{
+    "name": "adug/from-scratch",
+    "description": "blah blah blah",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Jeff Cardwell",
+            "email": "jeffcardwellbusiness@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "composer/installers": "^1.1",
+        "drupal/core": "^8.1",
+        "drupal-composer/drupal-scaffold": "^2.0",
+        "drush/drush": "^8.1"
+    },
+    "repositories": {
+        "drupal": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    }
+}
+
+```
+
+### Now we need to add the following items manually with a text editor
+
+5.  Prevent conflict between `drupal/drupal` dependencies and `drupal/core` dependencies
+    ```json
+        "conflict": {
+             "drupal/drupal": "*"
+        }
+    ```
+    This may not be necessary at all anymore...
+
+    [Use packages.drupal.org repository](https://github.com/drupal-composer/drupal-project/pull/159#issuecomment-232159891)
+
+    But it definitely does not have to be `replace` instead...
+
+    [support for cmd-line installer support of Drupal.org beta repos, instead of packagist](https://github.com/drupal-composer/drupal-project/issues/175#issuecomment-232169598)
+
+    In cany case, it might help and it won't hurt.
+
+6. Add calls to the `scaffold` plugin after `composer update` is invoked and after `composer install` is invoked.  This was inspired by [acquia/lightning-project](https://github.com/acquia/lightning-project/blob/8.x/composer.json) and [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project/blob/8.x/composer.json) `.json` files.
+    ```json
+        "scripts": {
+            "post-install-cmd": [
+                "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+            ],
+            "post-update-cmd": [
+                "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+            ]
+        }
+    ```
+
+    -- Note the location of the commas when all of these code snippets are copied into your file
 
 ### Now, your composer.json file should look something like this:
 
