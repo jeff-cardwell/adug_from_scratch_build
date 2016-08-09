@@ -5,19 +5,19 @@
     "authors": [
         {
             "name": "Jeff Cardwell",
-            "email": "jeffcardwell@gmail.com"
+            "email": "jeffcardwellbusiness@gmail.com"
         }
     ],
     "minimum-stability": "dev",
-    "prefer-stable" : true,
+    "prefer-stable": true,
     "require": {
         "composer/installers": "^1.1",
-        "drupal-composer/drupal-scaffold": "^2.0",
         "drupal/core": "^8.1",
+        "drupal-composer/drupal-scaffold": "^2.0",
         "drush/drush": "^8.1"
     },
     "conflict": {
-      "drupal/drupal": "*"
+        "drupal/drupal": "*"
     },
     "repositories": {
         "drupal": {
@@ -26,11 +26,11 @@
         }
     },
     "scripts": {
-      "post-install-cmd": [
-        "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-      ],
-      "post-update-cmd": [
-        "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-      ]
+        "post-install-cmd": [
+            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+        ],
+        "post-update-cmd": [
+            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+        ]
     }
 }
