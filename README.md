@@ -32,35 +32,40 @@
     ###The following configuration wizard will be initiated
     -- Note that you can skip the configuration wizard by using ```composer init --no-interaction``` instead
 
-    -   ```shell
+    -
+        ```shell
         Package name (<vendor>/<name>) [root/MY_NEW_PROJECT]:
         ```
         > The name of the package. It consists of vendor name and project name, separated by /.
 
         [Composer Docs](https://getcomposer.org/doc/04-schema.md#name)
 
-    -   ```shell
+    -
+        ```shell
         Description []:
         ```
         > A short description of the package. Usually this is just one line long.
 
         [Composer Docs](https://getcomposer.org/doc/04-schema.md#description)
 
-    -   ```shell
+    -
+        ```shell
         Author [FIRST_NAME LAST_NAME <EMAIL@DOMAIN.com>, n to skip]:
         ```
         > The authors of the package. This is an array of objects.
 
         [Composer Docs](https://getcomposer.org/doc/04-schema.md#authors)
 
-    -   ```shell
+    -
+        ```shell
         Minimum Stability []:
         ```
         > This defines the default behavior for filtering packages by stability.
 
         [Composer Docs](https://getcomposer.org/doc/04-schema.md#minimum-stability)
 
-    -   ```shell
+    -
+        ```shell
         Package Type (e.g. library, project, metapackage, composer-plugin) []:
         ```
         > The type of the package. It defaults to `library`.
@@ -69,14 +74,16 @@
 
         [Composer Docs](https://getcomposer.org/doc/04-schema.md#type)
 
-    -   ```shell
+    -
+        ```shell
         License []:
         ```
         > The license of the package. This can be either a string or an array of strings.
 
         [Composer Docs](https://getcomposer.org/doc/04-schema.md#license)
 
-    -   ```shell
+    -
+        ```shell
         Define your dependencies.
 
         Would you like to define your dependencies (require) interactively [yes]?
@@ -85,7 +92,8 @@
 
         [Composer Docs](https://getcomposer.org/doc/04-schema.md#require)
 
-    -   ```shell
+    -
+        ```shell
         Would you like to define your dev dependencies (require-dev) interactively [yes]?
         ```
         > Lists packages required for developing this package, or running tests, etc. The dev requirements of the root package are installed by default. Both `install` or `update` support the `--no-dev` option that prevents dev dependencies from being installed.
@@ -136,7 +144,7 @@
 
     [support for cmd-line installer support of Drupal.org beta repos, instead of packagist](https://github.com/drupal-composer/drupal-project/issues/175)
 
-### We need to add the following item manually using a text editor before we declare our dependencies
+    ### We need to add the following item manually using a text editor before we declare our dependencies
 
 4.  [Prefer Stable](https://getcomposer.org/doc/04-schema.md#prefer-stable) Setting
 
@@ -187,7 +195,8 @@
     ```
     -- Note what each of these is doing...
 
-    1.  ```shell
+    1.
+        ```shell
         $ composer require composer/installers
         ```
 
@@ -205,7 +214,8 @@
         - `drupal-profile`
         - `drupal-drush`
 
-    2.  ```shell
+    2.
+        ```shell
         $ composer require drupal/core
         ```
 
@@ -220,7 +230,8 @@
 
         Using this package instead of `drupal/drupal` essentially allows you to separate updates of core from updates of scaffolding files.
 
-    3.  ```shell
+    3.
+        ```shell
         $ composer require drupal-composer/drupal-scaffold
         ```
 
@@ -233,7 +244,8 @@
 
         We use this plugin because we are using `drupal/core`. This plugin allows you to update the Drupal core files *only* (without updating various scaffolding files that you may have customized).  You'll have to read the documentation at the above link to get more info.  We won't be manipulating the default actions at this time, but you might want investigate that depending on how your workflow is implemented.  Without writing our own scripts, this plugin is necessary when using `drupal/core` to move our scaffolding files to the appropriate places and directories (e.g. `index.php` to the web root).  Though we have not written our scripts, we will have to tell composer when to implement the `DrupalComposer\\DrupalScaffold\\Plugin::scaffold`. We'll do that by adding special language to the `composer.json` file below (keep reading).
 
-    4.  ```shell
+    4.
+        ```shell
         $ composer require --dev drush/drush
         ```
 
@@ -374,7 +386,9 @@
 
 8. Validate your new composer file
 
-    `$ composer validate`
+    ```
+    $ composer validate
+    ```
 
     >You should always run the `validate` command before you commit your `composer.json file`, and before you tag a release. It will check if your `composer.json` is valid.
 
