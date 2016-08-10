@@ -32,73 +32,73 @@
     ###The following configuration wizard will be initiated
     -- Note that you can skip the configuration wizard by using ```composer init --no-interaction``` instead
 
-    -
-        ```shell
-        Package name (<vendor>/<name>) [root/MY_NEW_PROJECT]:
-        ```
-        > The name of the package. It consists of vendor name and project name, separated by /.
+    ----------------------------------
+    ```shell
+    Package name (<vendor>/<name>) [root/MY_NEW_PROJECT]:
+    ```
+    > The name of the package. It consists of vendor name and project name, separated by /.
 
-        [Composer Docs](https://getcomposer.org/doc/04-schema.md#name)
+    [Composer Docs](https://getcomposer.org/doc/04-schema.md#name)
 
-    -
-        ```shell
-        Description []:
-        ```
-        > A short description of the package. Usually this is just one line long.
+    ----------------------------------
+    ```shell
+    Description []:
+    ```
+    > A short description of the package. Usually this is just one line long.
 
-        [Composer Docs](https://getcomposer.org/doc/04-schema.md#description)
+    [Composer Docs - Description](https://getcomposer.org/doc/04-schema.md#description)
 
-    -
-        ```shell
-        Author [FIRST_NAME LAST_NAME <EMAIL@DOMAIN.com>, n to skip]:
-        ```
-        > The authors of the package. This is an array of objects.
+    ----------------------------------
+    ```shell
+    Author [FIRST_NAME LAST_NAME <EMAIL@DOMAIN.com>, n to skip]:
+    ```
+    > The authors of the package. This is an array of objects.
 
-        [Composer Docs](https://getcomposer.org/doc/04-schema.md#authors)
+    [Composer Docs - Authors](https://getcomposer.org/doc/04-schema.md#authors)
 
-    -
-        ```shell
-        Minimum Stability []:
-        ```
-        > This defines the default behavior for filtering packages by stability.
+    ----------------------------------
+    ```shell
+    Minimum Stability []:
+    ```
+    > This defines the default behavior for filtering packages by stability.
 
-        [Composer Docs](https://getcomposer.org/doc/04-schema.md#minimum-stability)
+    [Composer Docs - Minimum Stability](https://getcomposer.org/doc/04-schema.md#minimum-stability)
 
-    -
-        ```shell
-        Package Type (e.g. library, project, metapackage, composer-plugin) []:
-        ```
-        > The type of the package. It defaults to `library`.
+    ----------------------------------
+    ```shell
+    Package Type (e.g. library, project, metapackage, composer-plugin) []:
+    ```
+    > The type of the package. It defaults to `library`.
 
-        >It is recommended to omit this field and have it just default to `library`.
+    >It is recommended to omit this field and have it just default to `library`.
 
-        [Composer Docs](https://getcomposer.org/doc/04-schema.md#type)
+    [Composer Docs - Type](https://getcomposer.org/doc/04-schema.md#type)
 
-    -
-        ```shell
-        License []:
-        ```
-        > The license of the package. This can be either a string or an array of strings.
+    ----------------------------------
+    ```shell
+    License []:
+    ```
+    > The license of the package. This can be either a string or an array of strings.
 
-        [Composer Docs](https://getcomposer.org/doc/04-schema.md#license)
+    [Composer Docs](https://getcomposer.org/doc/04-schema.md#license)
 
-    -
-        ```shell
-        Define your dependencies.
+    ----------------------------------
+    ```shell
+    Define your dependencies.
 
-        Would you like to define your dependencies (require) interactively [yes]?
-        ```
-        > Lists packages required by this package.
+    Would you like to define your dependencies (require) interactively [yes]?
+    ```
+    > Lists packages required by this package.
 
-        [Composer Docs](https://getcomposer.org/doc/04-schema.md#require)
+    [Composer Docs](https://getcomposer.org/doc/04-schema.md#require)
 
-    -
-        ```shell
-        Would you like to define your dev dependencies (require-dev) interactively [yes]?
-        ```
-        > Lists packages required for developing this package, or running tests, etc. The dev requirements of the root package are installed by default. Both `install` or `update` support the `--no-dev` option that prevents dev dependencies from being installed.
+    ----------------------------------
+    ```shell
+    Would you like to define your dev dependencies (require-dev) interactively [yes]?
+    ```
+    > Lists packages required for developing this package, or running tests, etc. The dev requirements of the root package are installed by default. Both `install` or `update` support the `--no-dev` option that prevents dev dependencies from being installed.
 
-        [Composer Docs](https://getcomposer.org/doc/04-schema.md#require-dev)
+    [Composer Docs](https://getcomposer.org/doc/04-schema.md#require-dev)
 
     The answers used for this project follow:
 
@@ -148,7 +148,9 @@
 
 4.  [Prefer Stable](https://getcomposer.org/doc/04-schema.md#prefer-stable) Setting
 
-    `"prefer-stable" : true`
+    ```json
+    "prefer-stable" : true
+    ```
 
     > When this is enabled, Composer will prefer more stable packages over unstable ones when finding compatible stable packages is possible. If you require a dev version or only alphas are available for a package, those will still be selected granted that the minimum-stability allows for it.
 
@@ -158,35 +160,35 @@
 
 
 
-### Your composer.json file should look something like this:
+    ###Your composer.json file should look something like this:
 
-```json
-{
-    "name": "adug/from-scratch",
-    "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
-    "type": "library",
-    "license": "GPL-2.0+",
-    "authors": [
-        {
-            "name": "Your Name",
-            "email": "address@domain.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require": {},
-    "repositories": {
-        "drupal": {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
+    ```json
+    {
+        "name": "adug/from-scratch",
+        "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
+        "license": "GPL-2.0+",
+        "authors": [
+            {
+                "name": "Your Name",
+                "email": "address@domain.com"
+            }
+        ],
+        "minimum-stability": "dev",
+        "prefer-stable": true,
+        "require": {},
+        "repositories": {
+            "drupal": {
+                "type": "composer",
+                "url": "https://packages.drupal.org/8"
+            }
         }
     }
-}
-```
+    ```
 
-### These items may be added by using the command line
 
-7. Require the following packages
+
+7. Require the following packages (these items may be added by using the command line)
+
     ```shell
     $ composer require composer/installers
     $ composer require drupal/core
@@ -195,126 +197,129 @@
     ```
     -- Note what each of these is doing...
 
-    1.
-        ```shell
-        $ composer require composer/installers
-        ```
+    ----------------------------------
+    ```shell
+    $ composer require composer/installers
+    ```
 
-        > This is for PHP package authors to require in their composer.json. It will install their package to the correct location based on the specified package type."
+    >This is for PHP package authors to require in their composer.json. It will install their package to the correct location based on the specified package type.
 
-        Basically this tells Composer what directory your required dependencies should be installed into.
+    Basically this tells Composer what directory your required dependencies should be installed into.
 
-        https://github.com/composer/installers
+    (https://github.com/composer/installers)
 
-        This list is of the pre-defined types of *Drupal* packages that `composer/installers` allows you to use (it can be found in the link above).  You'll be using these whenever you are creating composer.json files (for modules, themes, and whatnot) as the package `"type":`.
-        - `drupal-core`
-        - `drupal-module`
-        - `drupal-theme`
-        - `drupal-library`
-        - `drupal-profile`
-        - `drupal-drush`
+    This list is of the pre-defined types of *Drupal* packages that `composer/installers` allows you to use (it can be found in the link above).  You'll be using these whenever you are creating composer.json files (for modules, themes, and whatnot) as the package `"type":`.
 
-    2.
-        ```shell
-        $ composer require drupal/core
-        ```
+    - `drupal-core`
+    - `drupal-module`
+    - `drupal-theme`
+    - `drupal-library`
+    - `drupal-profile`
+    - `drupal-drush`
 
-        > This is a Git subtree split of Drupal 8's core directory which can be used to build the directory structure for a Drupal site and has the following advantages over pulling in the entire upstream Drupal repository:
-        > - All the components of the Drupal site including Drupal, contributed modules and themes, as well as external libraries can be pulled in via Composer
-        > - Drupal and any external libraries can be bootstrapped via Composer (i.e. without installing any modules for the external libraries)
-        > - One has full control over index.php, .htaccess, robots.txt, etc. as those files will not be overridden by a Drupal core update"
+    ----------------------------------
+    ```shell
+    $ composer require drupal/core
+    ```
 
-        [drupal-core project README.md](https://github.com/drupal-composer/drupal-core/blob/master/README.md)
+    > This is a Git subtree split of Drupal 8's core directory which can be used to build the directory structure for a Drupal site and has the following advantages over pulling in the entire upstream Drupal repository:
+    > - All the components of the Drupal site including Drupal, contributed modules and themes, as well as external libraries can be pulled in via Composer
+    > - Drupal and any external libraries can be bootstrapped via Composer (i.e. without installing any modules for the external libraries)
+    > - One has full control over index.php, .htaccess, robots.txt, etc. as those files will not be overridden by a Drupal core update"
 
-        [Clarify why `drupal/core` is the preferred approach](https://github.com/drupal-composer/drupal-project/issues/172)
+    [drupal-core project README.md](https://github.com/drupal-composer/drupal-core/blob/master/README.md)
 
-        Using this package instead of `drupal/drupal` essentially allows you to separate updates of core from updates of scaffolding files.
+    [Clarify why `drupal/core` is the preferred approach](https://github.com/drupal-composer/drupal-project/issues/172)
 
-    3.
-        ```shell
-        $ composer require drupal-composer/drupal-scaffold
-        ```
+    Using this package instead of `drupal/drupal` essentially allows you to separate updates of core from updates of scaffolding files.
 
-        >"Composer plugin for automatically downloading Drupal scaffold files (like index.php, update.php, …) when using
-        drupal/core via Composer."
+    ----------------------------------
+    ```shell
+    $ composer require drupal-composer/drupal-scaffold
+    ```
 
-        [drupal-scaffold project README.md](https://github.com/drupal-composer/drupal-scaffold/blob/master/README.md)
+    >"Composer plugin for automatically downloading Drupal scaffold files (like index.php, update.php, …) when using
+    drupal/core via Composer."
 
-        [drupal-project project README.md](https://github.com/drupal-composer/drupal-project#updating-drupal-core)
+    [drupal-scaffold project README.md](https://github.com/drupal-composer/drupal-scaffold/blob/master/README.md)
 
-        We use this plugin because we are using `drupal/core`. This plugin allows you to update the Drupal core files *only* (without updating various scaffolding files that you may have customized).  You'll have to read the documentation at the above link to get more info.  We won't be manipulating the default actions at this time, but you might want investigate that depending on how your workflow is implemented.  Without writing our own scripts, this plugin is necessary when using `drupal/core` to move our scaffolding files to the appropriate places and directories (e.g. `index.php` to the web root).  Though we have not written our scripts, we will have to tell composer when to implement the `DrupalComposer\\DrupalScaffold\\Plugin::scaffold`. We'll do that by adding special language to the `composer.json` file below (keep reading).
+    [drupal-project project README.md](https://github.com/drupal-composer/drupal-project#updating-drupal-core)
 
-    4.
-        ```shell
-        $ composer require --dev drush/drush
-        ```
+    We use this plugin because we are using `drupal/core`. This plugin allows you to update the Drupal core files *only* (without updating various scaffolding files that you may have customized).  You'll have to read the documentation at the above link to get more info.  We won't be manipulating the default actions at this time, but you might want investigate that depending on how your workflow is implemented.  Without writing our own scripts, this plugin is necessary when using `drupal/core` to move our scaffolding files to the appropriate places and directories (e.g. `index.php` to the web root).  Though we have not written our scripts, we will have to tell composer when to implement the `DrupalComposer\\DrupalScaffold\\Plugin::scaffold`. We'll do that by adding special language to the `composer.json` file below (keep reading).
 
-        Why do we need a "per-site" Drush installation?  In short, if we want to develop Drupal 7 and Drupal 8 projects on the same development server, it's fairly necessary.  Additionally, it may be necessary for more "advanced" development needs that utilize various Drush dependencies.
+    ----------------------------------
+    ```shell
+    $ composer require --dev drush/drush
+    ```
 
-        [Avoiding “Dependency Hell” with Site-Local Drush](https://pantheon.io/blog/avoiding-dependency-hell-site-local-drush)
+    **SAY SOMETHING ABOUT --DEV**
 
-        [Install Drush 7 and 8 Side-by-Side and Automatically Switch Versions Based on Each Project | Modules Unraveled](https://modulesunraveled.com/comment/404#comment-404)
+    Why do we need a "per-site" Drush installation?  In short, if we want to develop Drupal 7 and Drupal 8 projects on the same development server, it's fairly necessary.  Additionally, it may be necessary for more "advanced" development needs that utilize various Drush dependencies.
 
-        ### How to call a site-specific install of Drush when installing Drupal...
+    [Avoiding “Dependency Hell” with Site-Local Drush](https://pantheon.io/blog/avoiding-dependency-hell-site-local-drush)
 
-        [Goodbye Drush Make, Hello Composer!](https://www.lullabot.com/articles/goodbye-drush-make-hello-composer)
+    [Install Drush 7 and 8 Side-by-Side and Automatically Switch Versions Based on Each Project | Modules Unraveled](https://modulesunraveled.com/comment/404#comment-404)
 
-        -- Note that Drush is called from the `bin` directory, basically
+    ### How to call a site-specific install of Drush when installing Drupal
 
-        > The right version of Drush for Drupal 8 comes built into this package. If you have an empty database you can then install Drupal using the Drush version in the package:
-        >   ```
-        >   cd drupal/web
-        >   ../vendor/bin/drush site-install --db-url=mysql://{username}:{password}@localhost/{database}
-        >   ```
-        > If you don’t do the installation with Drush you can do it manually, but the Drush installation handles all this for you. The manual process for installing Drupal 8 is:
-        >
-        > Copy default.settings.php to settings.php and unprotect it
-        >
-        > Copy default.license.yml to license.yml and unprotect it
-        >
-        > Create sites/files and unprotect it
-        >
-        > Navigate to EXAMPLE.COM/install to provide the database credentials and follow the instructions.
+    [Goodbye Drush Make, Hello Composer!](https://www.lullabot.com/articles/goodbye-drush-make-hello-composer)
+
+    -- Note that Drush is called from the `bin` directory, basically
+
+    > The right version of Drush for Drupal 8 comes built into this package. If you have an empty database you can then install Drupal using the Drush version in the package:
+    >   ```
+    >   cd drupal/web
+    >   ../vendor/bin/drush site-install --db-url=mysql://{username}:{password}@localhost/{database}
+    >   ```
+    > If you don’t do the installation with Drush you can do it manually, but the Drush installation handles all this for you. The manual process for installing Drupal 8 is:
+    >
+    > Copy default.settings.php to settings.php and unprotect it
+    >
+    > Copy default.license.yml to license.yml and unprotect it
+    >
+    > Create sites/files and unprotect it
+    >
+    > Navigate to EXAMPLE.COM/install to provide the database credentials and follow the instructions.
 
 
-### Now, your composer.json file should look something like this:
+    ### Now, your composer.json file should look something like this:
 
-```json
-{
-    "name": "adug/from-scratch",
-    "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
-    "type": "library",
-    "license": "GPL-2.0+",
-    "authors": [
-        {
-            "name": "Your Name",
-            "email": "address@domain.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require": {
-        "composer/installers": "^1.1",
-        "drupal/core": "^8.1",
-        "drupal-composer/drupal-scaffold": "^2.0",
-        "drush/drush": "^8.1"
-    },
-    "repositories": {
-        "drupal": {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
+    ```json
+    {
+        "name": "adug/from-scratch",
+        "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
+        "license": "GPL-2.0+",
+        "authors": [
+            {
+                "name": "Your Name",
+                "email": "address@domain.com"
+            }
+        ],
+        "minimum-stability": "dev",
+        "prefer-stable": true,
+        "require": {
+            "composer/installers": "^1.1",
+            "drupal/core": "^8.1",
+            "drupal-composer/drupal-scaffold": "^2.0"
+        },
+        "repositories": {
+            "drupal": {
+                "type": "composer",
+                "url": "https://packages.drupal.org/8"
+            }
+        },
+        "require-dev": {
+            "drush/drush": "^8.1"
         }
     }
-}
+    ```
 
-```
-
-### Now we need to add the following items manually with a text editor
+    ### We need to add the following items manually with a text editor
 
 5.  Prevent conflict between `drupal/drupal` dependencies and `drupal/core` dependencies
     ```json
         "conflict": {
-             "drupal/drupal": "*"
+            "drupal/drupal": "*"
         }
     ```
     This may not be necessary at all anymore...
@@ -342,47 +347,48 @@
     -- Note the location of the commas when all of these code snippets are copied into your file
     -- Also, add the -vvv flag to `composer update` or `composer install` view a very verbose output, including which scaffolding files are being downloaded (look for them towards the end of the output)
 
-### Now, your composer.json file should look something like this:
+    ### Now, your composer.json file should look something like this:
 
-```json
-{
-    "name": "adug/from-scratch",
-    "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
-    "type": "library",
-    "license": "GPL-2.0+",
-    "authors": [
-        {
-            "name": "Your Name",
-            "email": "address@domain.com"
+    ```json
+    {
+        "name": "adug/from-scratch",
+        "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
+        "license": "GPL-2.0+",
+        "authors": [
+            {
+                "name": "Your Name",
+                "email": "address@domain.com"
+            }
+        ],
+        "minimum-stability": "dev",
+        "prefer-stable": true,
+        "require": {
+            "composer/installers": "^1.1",
+            "drupal/core": "^8.1",
+            "drupal-composer/drupal-scaffold": "^2.0"
+        },
+        "conflict": {
+            "drupal/drupal": "*"
+        },
+        "repositories": {
+            "drupal": {
+                "type": "composer",
+                "url": "https://packages.drupal.org/8"
+            }
+        },
+        "require-dev": {
+            "drush/drush": "^8.1"
+        },
+        "scripts": {
+            "post-install-cmd": [
+                "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+            ],
+            "post-update-cmd": [
+                "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
+            ]
         }
-    ],
-    "minimum-stability": "dev",
-    "prefer-stable" : true,
-    "require": {
-        "composer/installers": "^1.1",
-        "drupal-composer/drupal-scaffold": "^2.0",
-        "drupal/core": "^8.1",
-        "drush/drush": "^8.1"
-    },
-    "conflict": {
-      "drupal/drupal": "*"
-    },
-    "repositories": {
-        "drupal": {
-            "type": "composer",
-            "url": "https://packages.drupal.org/8"
-        }
-    },
-    "scripts": {
-      "post-install-cmd": [
-        "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-      ],
-      "post-update-cmd": [
-        "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-      ]
     }
-}
-```
+    ```
 
 8. Validate your new composer file
 
@@ -394,35 +400,88 @@
 
     [Compser docs](https://getcomposer.org/doc/03-cli.md#validate)
 
+9. Run `composer update` to update your `composer.lock` file
+
+10. Initialize a new project with git
+    ```shell
+    $ git init
+    ```
+
 9. Create a .gitignore file
-    1. exclude vendor directory
-    2. exclude core directory
+    1. exclude `vendor` directory
+    2. exclude `core` directory
+    3. exclude `themes` directory
+    4. exclude `modules` directory
+    5. exclude `autoload.php` that is automatically generated by `drupal-scaffold`
 
-### Your .gitignore file might look something like this:
-```git
-# Ignore vendor files directory generated by Composer
-vendor
-# Ignore core Drupal files directory
-core
-# Ignore files generated by PhpStorm
-.idea
-```
+    ### Your .gitignore file might look something like this:
+    ```git
+    # Ignore vendor files directory generated by Composer
+    vendor
+    # Ignore files created automatically by Composer using drupal-scaffold
+    autoload.php
+    # Ignore Drupal directories
+    core
+    sites
+    themes
+    modules
+    # Ignore files generated by PhpStorm
+    .idea
+    ```
 
-10. The following files are the only ones that you *need* in version control to start with.  Different scenarios will require you to track additional files (e.g. .htaccess).  Do not include your `vendor` or `core` directories.  That is why they were put in our `.gitignore` file.  After you add further themes and/or modules using `composer require`, you will probably want to add the `themes` and `modules` directories to your `.gitignore` file as well.
-
-    Please read the [drupal-scaffold README.md](https://github.com/drupal-composer/drupal-scaffold) for information about including scaffolding files in version control.
-
+10. The following files are the only ones that you *need* in version control to start with.
     ```shell
     composer.json
     composer.lock
     .gitignore
     ```
 
+    However...
+    Different scenarios will require you to track additional files (e.g. .htaccess).  Do not include your `vendor` or `core` directories.  That is why they were put in our `.gitignore` file.  After you add further themes and/or modules using `composer require`, you will probably want to add the `themes` and `modules` directories to your `.gitignore` file as well.
+
+    Please read the [drupal-scaffold README.md](https://github.com/drupal-composer/drupal-scaffold) for information about including scaffolding files in version control.
+
     -- Note the following advisory from the [drupal-scaffold README.md](https://github.com/drupal-composer/drupal-scaffold#limitation)
     >Limitation
     >
     >When using Composer to install or update the Drupal development branch, the scaffold files are always taken from the HEAD of the branch (or, more specifically, from the most recent development .tar.gz archive). This might not be what you want when using an old development version (e.g. when the version is fixed via composer.lock). To avoid problems, always commit your scaffold files to the repository any time that composer.lock is committed. Note that the correct scaffold files are retrieved when using a tagged release of drupal/core (recommended).
 
+    Taken from the above README.md page is the following list of scaffold files that we will commit to our version control repository.
+    ```git
+    .csslintrc
+    .editorconfig
+    .eslintignore
+    .eslintrc
+    .gitattributes
+    .htaccess
+    index.php
+    robots.txt
+    sites/default/default.settings.php
+    sites/default/default.services.yml
+    sites/development.services.yml
+    sites/example.settings.local.php
+    sites/example.sites.php
+    update.php
+    web.config
+    ```
+    When it comes to which files to "keep" in version control, the following files are a good place to start.
+    ```git
+    .csslintrc
+    .editorconfig
+    .eslintignore
+    .eslintrc
+    .gitattributes
+    .gitignore
+    .htaccess
+    composer.json
+    composer.lock
+    index.php
+    robots.txt
+    update.php
+    web.config
+    ```
+
+11. Commit your relevant files
 
 ## How to use this repository
 
