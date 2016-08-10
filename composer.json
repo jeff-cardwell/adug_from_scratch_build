@@ -1,11 +1,11 @@
 {
     "name": "adug/from-scratch",
     "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
-    "type": "project",
+    "license": "GPL-2.0+",
     "authors": [
         {
-            "name": "Jeff Cardwell",
-            "email": "jeffcardwellbusiness@gmail.com"
+            "name": "Your Name",
+            "email": "address@domain.com"
         }
     ],
     "minimum-stability": "dev",
@@ -13,8 +13,7 @@
     "require": {
         "composer/installers": "^1.1",
         "drupal/core": "^8.1",
-        "drupal-composer/drupal-scaffold": "^2.0",
-        "drush/drush": "^8.1"
+        "drupal-composer/drupal-scaffold": "^2.0"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -24,6 +23,9 @@
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
+    },
+    "require-dev": {
+        "drush/drush": "^8.1"
     },
     "scripts": {
         "post-install-cmd": [
