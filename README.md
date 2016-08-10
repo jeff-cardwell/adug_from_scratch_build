@@ -62,7 +62,7 @@
     Author [FIRST_NAME LAST_NAME <EMAIL@DOMAIN.com>, n to skip]:
     Minimum Stability []: dev
     Package Type (e.g. library, project, metapackage, composer-plugin) []: project
-    License []:
+    License []: GPL-2.0+
 
     Define your dependencies.
 
@@ -119,6 +119,7 @@
     "name": "adug/from-scratch",
     "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
     "type": "project",
+    "license": "GPL-2.0+",
     "authors": [
         {
             "name": "Your Name",
@@ -225,6 +226,7 @@
     "name": "adug/from-scratch",
     "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
     "type": "project",
+    "license": "GPL-2.0+",
     "authors": [
         {
             "name": "Your Name",
@@ -288,6 +290,7 @@
     "name": "adug/from-scratch",
     "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
     "type": "project",
+    "license": "GPL-2.0+",
     "authors": [
         {
             "name": "Your Name",
@@ -322,11 +325,19 @@
 }
 ```
 
+8. Validate your new composer file
+
+    `$ composer validate`
+
+    >You should always run the `validate` command before you commit your `composer.json file`, and before you tag a release. It will check if your `composer.json` is valid.
+
+    [Compser docs](https://getcomposer.org/doc/03-cli.md#validate)
+
 8. Create a .gitignore file
     1. exclude vendor directory
     2. exclude core directory
 
-9. The following files are the *only* ones that you *need* in your version control to start with.  Different scenarios will require you to add additional files.  Do *not* include your `vendor` or `core` directories.  That is why they were put in our `.gitignore` file.
+9. The following files are the only ones that you *need* in version control to start with.  Different scenarios will require you to track additional files (e.g. .htaccess).  Do not include your `vendor` or `core` directories.  That is why they were put in our `.gitignore` file.  After you add further themes and/or modules using `composer require`, you will probably want to add the `themes` and `modules` directories to your `.gitignore` file as well.
 
     ```shell
     composer.json
@@ -349,6 +360,8 @@
     ```shell
     MY_NEW_PROJECT$ composer install
     ```
+
+    [Composer Docs](https://getcomposer.org/doc/03-cli.md#install)
 
 3. Install Drupal
     [Instructions from earlier](#how-to-call-a-site-specific-install-of-drush-when-installing-drupal)

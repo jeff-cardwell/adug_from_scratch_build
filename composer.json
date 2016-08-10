@@ -2,6 +2,7 @@
     "name": "adug/from-scratch",
     "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
     "type": "project",
+    "license": "GPL-2.0+",
     "authors": [
         {
             "name": "Jeff Cardwell",
