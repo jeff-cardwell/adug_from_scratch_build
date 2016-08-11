@@ -12,8 +12,8 @@
     "prefer-stable": true,
     "require": {
         "composer/installers": "^1.1",
-        "drupal/core": "^8.1",
-        "drupal-composer/drupal-scaffold": "^2.0"
+        "drupal-composer/drupal-scaffold": "^2.0",
+        "drupal/core": "^8.1"
     },
     "conflict": {
         "drupal/drupal": "*"
@@ -22,17 +22,16 @@
         "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
+        },
+        "adug": {
+            "type": "git",
+            "url": "git@gitlab.com:adug/adug_profile.git"
         }
     },
     "require-dev": {
         "drush/drush": "^8.1"
     },
     "scripts": {
-        "post-install-cmd": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-        ],
-        "post-update-cmd": [
-            "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-        ]
+        "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
     }
 }
