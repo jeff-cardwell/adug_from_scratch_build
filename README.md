@@ -136,7 +136,7 @@
     ```shell
     $ composer config repositories.drupal composer https://packages.drupal.org/8
     ```
-    -- Note that this is needed because Drupal packages are not not indexed by the "official" Composer packagist repository (and most likely they never *will* be - for a variety of reasons).  D.O. has made this alternative supported way going forward.
+    -- Note that this is needed because Drupal packages are not not indexed by the "official" Composer packagist repository (and most likely they never *will* be - for a variety of reasons).  D.O. has made this the alternative supported way going forward.
 
     - [Using Composer to install Drupal packages through Drupal.org](https://www.drupal.org/node/2718229)
     - [[meta] Path forward for Composer support](https://www.drupal.org/node/2551607)
@@ -239,7 +239,7 @@
     - [drupal-scaffold project README.md](https://github.com/drupal-composer/drupal-scaffold/blob/master/README.md)
     - [drupal-project project README.md](https://github.com/drupal-composer/drupal-project#updating-drupal-core)
 
-    We use this plugin because we are using `drupal/core`. This plugin allows you to update the Drupal core files *only* (without updating various scaffolding files that you may have customized).  You'll have to read the documentation at the above link to get more info.  We won't be manipulating the default actions at this time, but you might want investigate that depending on how your workflow is implemented.  Without writing our own scripts, this plugin is necessary when using `drupal/core` to move our scaffolding files to the appropriate places and directories (e.g. `index.php` to the web root).  Though we have not written our own scripts, we will have to tell composer when to implement `DrupalComposer\\DrupalScaffold\\Plugin::scaffold`. We'll do that by adding special language to the `composer.json` file below (keep reading).
+    We use this plugin because we are using `drupal/core`. This plugin allows you to update the Drupal core files *only* (without updating various scaffolding files that you may have customized).  You'll have to read the documentation at the above link to get more info.  We won't be manipulating the default actions at this time (which is that the scaffold script runs every time you `composer update drupal/core` or `composer install` downloads and places new copies of the scaffolding files), but you will want investigate that depending on how your workflow is implemented.  Without writing our own scripts, this plugin is necessary when using `drupal/core` to move our scaffolding files to the appropriate places and directories (e.g. `index.php` to the web root).  Occasionally we may want to retrieve the scaffolding files anew without automatically triggering the script. We'll do that by adding special language to the `composer.json` file below (keep reading).
 
     ----------------------------------
     ```shell
@@ -326,20 +326,17 @@
 
     In cany case, it might help and it won't hurt.
 
-6. Add calls to the `scaffold` plugin after `composer update` is invoked and after `composer install` is invoked.  This was inspired by [acquia/lightning-project](https://github.com/acquia/lightning-project/blob/8.x/composer.json) and [drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project/blob/8.x/composer.json) `.json` files. (this item should be added using a text editor)
+6. Add call to the `scaffold` plugin. (this item should be added using a text editor)
+
+    This script can be invoked by using `composer drupal-scaffold` in the root directory (where this composer.json file is found).
     ```json
         "scripts": {
-            "post-install-cmd": [
-                "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-            ],
-            "post-update-cmd": [
-                "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-            ]
+            "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
         }
     ```
 
-    -- Note the location of the commas when all of these code snippets are copied into your file
-    -- Also, add the -vvv flag to `composer update` or `composer install` view a very verbose output, including which scaffolding files are being downloaded (look for them towards the end of the output)
+    -- Note the location of the commas when code snippets are copied into your `composer.json` file
+    -- Also, add the -vvv flag to `composer drupal-scaffold` to view a very verbose output, including which scaffolding files are being downloaded
 
     ### Now, your composer.json file should look something like this:
 
@@ -374,12 +371,7 @@
             "drush/drush": "^8.1"
         },
         "scripts": {
-            "post-install-cmd": [
-                "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-            ],
-            "post-update-cmd": [
-                "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
-            ]
+            "drupal-scaffold": "DrupalComposer\\DrupalScaffold\\Plugin::scaffold"
         }
     }
     ```
