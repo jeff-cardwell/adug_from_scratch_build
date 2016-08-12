@@ -145,7 +145,7 @@
 4.  [Prefer Stable](https://getcomposer.org/doc/04-schema.md#prefer-stable) Setting (this item should be added using a text editor before we declare our dependencies)
 
     ```json
-    "prefer-stable" : true
+    "prefer-stable": true
     ```
 
     > When this is enabled, Composer will prefer more stable packages over unstable ones when finding compatible stable packages is possible. If you require a dev version or only alphas are available for a package, those will still be selected granted that the minimum-stability allows for it.
@@ -187,8 +187,8 @@
 
     ```shell
     $ composer require composer/installers
-    $ composer require drupal/core
     $ composer require drupal-composer/drupal-scaffold
+    $ composer require drupal/core
     $ composer require --dev drush/drush
     ```
     -- Note what each of these is doing...
@@ -215,6 +215,19 @@
 
     ----------------------------------
     ```shell
+    $ composer require drupal-composer/drupal-scaffold
+    ```
+
+    >"Composer plugin for automatically downloading Drupal scaffold files (like index.php, update.php, …) when using
+    drupal/core via Composer."
+
+    - [drupal-scaffold project README.md](https://github.com/drupal-composer/drupal-scaffold/blob/master/README.md)
+    - [drupal-project project README.md](https://github.com/drupal-composer/drupal-project#updating-drupal-core)
+
+    We use this plugin because we are using `drupal/core`. This plugin allows you to update the Drupal core files *only* (without updating various scaffolding files that you may have customized).  You'll have to read the documentation at the above link to get more info.  We won't be manipulating the default actions at this time (the scaffold script, by default, runs every time you `composer update drupal/core` or `composer install` by downloading and placing new copies of the scaffolding files), but you will want investigate that depending on how your workflow is implemented.  Without writing our own scripts, this plugin is necessary when using `drupal/core` to move our scaffolding files to the appropriate places and directories (e.g. `index.php` to the web root).  Occasionally we may want to retrieve the scaffolding files anew without automatically triggering the script. We'll do that by adding special language to the `composer.json` file below (keep reading).
+
+    ----------------------------------
+    ```shell
     $ composer require drupal/core
     ```
 
@@ -227,19 +240,6 @@
     - [Clarify why `drupal/core` is the preferred approach](https://github.com/drupal-composer/drupal-project/issues/172)
 
     Using this package instead of `drupal/drupal` essentially allows you to separate updates of core from updates of scaffolding files.
-
-    ----------------------------------
-    ```shell
-    $ composer require drupal-composer/drupal-scaffold
-    ```
-
-    >"Composer plugin for automatically downloading Drupal scaffold files (like index.php, update.php, …) when using
-    drupal/core via Composer."
-
-    - [drupal-scaffold project README.md](https://github.com/drupal-composer/drupal-scaffold/blob/master/README.md)
-    - [drupal-project project README.md](https://github.com/drupal-composer/drupal-project#updating-drupal-core)
-
-    We use this plugin because we are using `drupal/core`. This plugin allows you to update the Drupal core files *only* (without updating various scaffolding files that you may have customized).  You'll have to read the documentation at the above link to get more info.  We won't be manipulating the default actions at this time (which is that the scaffold script runs every time you `composer update drupal/core` or `composer install` downloads and places new copies of the scaffolding files), but you will want investigate that depending on how your workflow is implemented.  Without writing our own scripts, this plugin is necessary when using `drupal/core` to move our scaffolding files to the appropriate places and directories (e.g. `index.php` to the web root).  Occasionally we may want to retrieve the scaffolding files anew without automatically triggering the script. We'll do that by adding special language to the `composer.json` file below (keep reading).
 
     ----------------------------------
     ```shell
