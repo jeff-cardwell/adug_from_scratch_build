@@ -1,11 +1,11 @@
 {
     "name": "adug/from-scratch",
-    "description": "A Drupal 8 composer project 'from scratch' (without using a third-party composer project template)",
+    "description": "A Drupal 8 composer project 'from scratch'",
     "license": "GPL-2.0+",
     "authors": [
         {
-            "name": "Your Name",
-            "email": "address@domain.com"
+            "name": "Jeff Cardwell",
+            "email": "jeffcardwellbusiness@gmail.com"
         }
     ],
     "minimum-stability": "dev",
