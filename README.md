@@ -154,8 +154,6 @@
 
     This means that Composer will always try to install a "stable" release first. Available options (in order of stability) are `dev`, `alpha`, `beta`, `RC`, and `stable` ([Minimum Stability](https://getcomposer.org/doc/04-schema.md#minimum-stability)). If there is no available dependency from `beta` onward (which are what Composer considers "stable"), it will use an `alpha` or a `dev` version because we have set our `minimum-stability` to dev (and `alpha` and `dev` are both "great than or equal" to that setting).
 
-
-
     ###Your composer.json file should look something like this:
 
     ```json
@@ -180,8 +178,6 @@
         }
     }
     ```
-
-
 
 7. Require the following packages (these items may be added by using the command line)
 
@@ -277,7 +273,6 @@
     >
     > Navigate to EXAMPLE.COM/install to provide the database credentials and follow the instructions.
 
-
     ### Now, your composer.json file should look something like this:
 
     ```json
@@ -295,8 +290,8 @@
         "prefer-stable": true,
         "require": {
             "composer/installers": "^1.1",
-            "drupal/core": "^8.1",
-            "drupal-composer/drupal-scaffold": "^2.0"
+            "drupal-composer/drupal-scaffold": "^2.0",
+            "drupal/core": "^8.1"
         },
         "repositories": {
             "drupal": {
@@ -355,8 +350,8 @@
         "prefer-stable": true,
         "require": {
             "composer/installers": "^1.1",
-            "drupal/core": "^8.1",
-            "drupal-composer/drupal-scaffold": "^2.0"
+            "drupal-composer/drupal-scaffold": "^2.0",
+            "drupal/core": "^8.1"
         },
         "conflict": {
             "drupal/drupal": "*"
