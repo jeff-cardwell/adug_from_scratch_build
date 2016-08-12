@@ -22,10 +22,6 @@
         "drupal": {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
-        },
-        "adug": {
-            "type": "git",
-            "url": "git@gitlab.com:adug/adug_profile.git"
         }
     },
     "require-dev": {
