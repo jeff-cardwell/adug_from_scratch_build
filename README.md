@@ -8,6 +8,7 @@
 ## How to re-create these files without cloning the repository
 
 ###Required Software
+   - Php
    - [Composer](https://getcomposer.org/doc/00-intro.md)
    -- [Composer Cheat Sheet](http://composer.json.jolicode.com/)
    - [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
