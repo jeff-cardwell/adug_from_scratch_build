@@ -132,7 +132,7 @@
 
     Do you confirm generation [yes]? yes
     ```
-3. Configure Composer to use the Drupal package repository (this item may be added by using the command line)
+3. Configure Composer to use the Drupal package repository (this item may be added using the command line)
 
     ```shell
     $ composer config repositories.drupal composer https://packages.drupal.org/8
@@ -143,10 +143,10 @@
     - [[meta] Path forward for Composer support](https://www.drupal.org/node/2551607)
     - [support for cmd-line installer support of Drupal.org beta repos, instead of packagist](https://github.com/drupal-composer/drupal-project/issues/175)
 
-4.  [Prefer Stable](https://getcomposer.org/doc/04-schema.md#prefer-stable) Setting (this item should be added using a text editor before we declare our dependencies)
+4.  [Prefer Stable](https://getcomposer.org/doc/04-schema.md#prefer-stable) Setting (this item may be added using the command line before we declare our dependencies)
 
-    ```json
-    "prefer-stable": true
+    ```shell
+    $ composer config prefer-stable true
     ```
 
     > When this is enabled, Composer will prefer more stable packages over unstable ones when finding compatible stable packages is possible. If you require a dev version or only alphas are available for a package, those will still be selected granted that the minimum-stability allows for it.
@@ -180,7 +180,7 @@
     }
     ```
 
-7. Require the following packages (these items may be added by using the command line)
+5. Require the following packages (these items may be added by using the command line)
 
     ```shell
     $ composer require composer/installers
@@ -306,7 +306,7 @@
     }
     ```
 
-5.  Prevent conflict between `drupal/drupal` dependencies and `drupal/core` dependencies (this item should be added using a text editor)
+6.  Prevent conflict between `drupal/drupal` dependencies and `drupal/core` dependencies (this item should be added using a text editor)
     ```json
         "conflict": {
             "drupal/drupal": "*"
@@ -322,7 +322,7 @@
 
     In cany case, it might help and it won't hurt.
 
-6. Add call to the `scaffold` plugin. (this item should be added using a text editor)
+7. Add call to the `scaffold` plugin. (this item should be added using a text editor)
 
     This script can be invoked by using `composer drupal-scaffold` in the root directory (where this composer.json file is found).
     ```json
@@ -332,6 +332,7 @@
     ```
 
     -- Note the location of the commas when code snippets are copied into your `composer.json` file
+
     -- Also, add the -vvv flag to `composer drupal-scaffold` to view a very verbose output, including which scaffolding files are being downloaded
 
     ### Now, your composer.json file should look something like this:
@@ -372,7 +373,7 @@
     }
     ```
 
-7. Validate your new composer file
+8. Validate your new composer file
 
     ```
     $ composer validate
@@ -382,14 +383,14 @@
 
     [Compser docs](https://getcomposer.org/doc/03-cli.md#validate)
 
-8. Run `composer update` to update your `composer.lock` file
+9. Run `composer update` to update your `composer.lock` file
 
-9. Initialize a new project with git
+10. Initialize a new project with git
     ```shell
     $ git init
     ```
 
-10. Create a .gitignore file
+11. Create a .gitignore file
     1. exclude `vendor` directory
     2. exclude `core` directory
     3. exclude `themes` directory
@@ -411,7 +412,7 @@
     .idea
     ```
 
-11. The following files are the only ones that you *need* in version control to start with.
+12. The following files are the only ones that you *need* in version control to start with.
     ```shell
     composer.json
     composer.lock
@@ -471,7 +472,7 @@
 
     [settings.local.php for Drupal 8](http://wizzlern.nl/drupal/settingslocalphp-for-drupal-8)
 
-12. Commit your relevant files
+13. Commit your relevant files
 
 ## How to use this repository
 
@@ -491,4 +492,5 @@
     [Composer Docs](https://getcomposer.org/doc/03-cli.md#install)
 
 3. Install Drupal
-    [Instructions from earlier](#how-to-call-a-site-specific-install-of-drush-when-installing-drupal)
+
+    [Instructions from earlier in this document](#how-to-call-a-site-specific-install-of-drush-when-installing-drupal)
