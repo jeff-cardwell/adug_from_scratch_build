@@ -39,7 +39,7 @@
     ```
     > The name of the package. It consists of vendor name and project name, separated by /.
 
-    [Composer Docs](https://getcomposer.org/doc/04-schema.md#name)
+    [Composer Docs - name](https://getcomposer.org/doc/04-schema.md#name)
 
     ----------------------------------
     ```shell
@@ -81,7 +81,7 @@
     ```
     > The license of the package. This can be either a string or an array of strings.
 
-    [Composer Docs](https://getcomposer.org/doc/04-schema.md#license)
+    [Composer Docs - license](https://getcomposer.org/doc/04-schema.md#license)
 
     ----------------------------------
     ```shell
@@ -91,7 +91,7 @@
     ```
     > Lists packages required by this package.
 
-    [Composer Docs](https://getcomposer.org/doc/04-schema.md#require)
+    [Composer Docs - require](https://getcomposer.org/doc/04-schema.md#require)
 
     ----------------------------------
     ```shell
@@ -99,7 +99,7 @@
     ```
     > Lists packages required for developing this package, or running tests, etc. The dev requirements of the root package are installed by default. Both `install` or `update` support the `--no-dev` option that prevents dev dependencies from being installed.
 
-    [Composer Docs](https://getcomposer.org/doc/04-schema.md#require-dev)
+    [Composer Docs - require-dev](https://getcomposer.org/doc/04-schema.md#require-dev)
 
     The answers used for this package follow:
 
@@ -153,7 +153,7 @@
 
     - [Composer: required packages with differing levels of minimum-stability](http://stackoverflow.com/questions/23086204/composer-required-packages-with-differing-levels-of-minimum-stability)
 
-    This means that Composer will always try to install a "stable" release first. Available options (in order of stability) are `dev`, `alpha`, `beta`, `RC`, and `stable` ([Minimum Stability](https://getcomposer.org/doc/04-schema.md#minimum-stability)). If there is no available dependency from `beta` onward (which are what Composer considers "stable"), it will use an `alpha` or a `dev` version because we have set our `minimum-stability` to dev (and `alpha` and `dev` are both "great than or equal" to that setting).
+    This means that Composer will always try to install a "stable" release first. Available options (in order of stability) are `dev`, `alpha`, `beta`, `RC`, and `stable` ([Minimum Stability](https://getcomposer.org/doc/04-schema.md#minimum-stability)). If there is no available dependency from `beta` onward (which are what Composer considers "stable"), it will use an `alpha` or a `dev` version because we have set our `minimum-stability` to dev (and `alpha` and `dev` are both "great than or equal" to that setting according to the hierarchy in the list above).
 
     ###Your composer.json file should look something like this:
 
@@ -199,7 +199,7 @@
 
     Basically this tells Composer what directory your required dependencies should be installed into.
 
-    - [composer/installers](https://github.com/composer/installers)
+    - [composer/installers Github project page](https://github.com/composer/installers)
 
     This list is of the pre-defined types of *Drupal* packages that `composer/installers` allows you to use (it can be found in the link above).  You'll be using these whenever you are creating composer.json files (for modules, themes, and whatnot) as the package `"type":`.
 
@@ -381,7 +381,7 @@
 
     >You should always run the `validate` command before you commit your `composer.json file`, and before you tag a release. It will check if your `composer.json` is valid.
 
-    [Compser docs](https://getcomposer.org/doc/03-cli.md#validate)
+    [Compser docs - validate](https://getcomposer.org/doc/03-cli.md#validate)
 
 9. Run `composer update` to update your `composer.lock` file
 
@@ -424,7 +424,7 @@
 
     Please read the [drupal-scaffold README.md](https://github.com/drupal-composer/drupal-scaffold) for information about including scaffolding files in version control.
 
-    -- Note the following advisory from the [drupal-scaffold README.md](https://github.com/drupal-composer/drupal-scaffold#limitation)
+    -- Note the following advisory from the [drupal-scaffold README.md - limitation](https://github.com/drupal-composer/drupal-scaffold#limitation)
     >Limitation
     >
     >When using Composer to install or update the Drupal development branch, the scaffold files are always taken from the HEAD of the branch (or, more specifically, from the most recent development .tar.gz archive). This might not be what you want when using an old development version (e.g. when the version is fixed via composer.lock). To avoid problems, always commit your scaffold files to the repository any time that composer.lock is committed. Note that the correct scaffold files are retrieved when using a tagged release of drupal/core (recommended).
@@ -489,7 +489,7 @@
     MY_NEW_PROJECT$ composer install
     ```
 
-    [Composer Docs](https://getcomposer.org/doc/03-cli.md#install)
+    [Composer Docs - install](https://getcomposer.org/doc/03-cli.md#install)
 
 3. Install Drupal
 
