@@ -65,7 +65,7 @@
 
     - [Composer Docs - global options](https://getcomposer.org/doc/03-cli.md#global-options)
 
-    If you've added a personal repository to your package, and you intend to edit it in place (while keeping track of the changes you made in it's personal VCS repository), this is the command to help you make sure all is well. For example, if a "newer version" of a package from your personal repository is available, and the composer.json file in your newer version isn't behaving, this will alert you that there's something afoot.
+    If you've added a personal repository to your package, and you intend to edit it in place (while keeping track of the changes you made in its personal VCS repository), this is the command to help you make sure all is well. For example, if a "newer version" of a package from your personal repository is available, and the composer.json file in your newer version isn't behaving, this will alert you that there's something afoot.
 
 ---------------------------------------------
 - `$ composer validate`
