@@ -18,9 +18,11 @@
 
     > The `require` command adds new packages to the `composer.json` file from the current directory. If no file exists one will be created on the fly.
 
-    - [Composer Docs - require](https://getcomposer.org/doc/03-cli.md#require)
+    Note the `--dev` option
 
-    Consider using the '--prefer-source' when requiring packages that are stored in a personal repository. This will allow you to edit them in place and have your VCS setup at hand.
+    > Add packages to `require-dev`.
+
+    Consider using the '--prefer-source' option when requiring packages that are stored in a personal repository. This will allow you to edit them in place and have your VCS setup at hand.
     > `--prefer-source`: Install packages from source when available.
 
     - [Composer Docs - require](https://getcomposer.org/doc/03-cli.md#require)
@@ -37,11 +39,17 @@
 
     > The `install` command reads the `composer.json file` from the current directory, resolves the dependencies, and installs them into `vendor`.
 
+    Note the option `--no-dev`
+
+    >Skip installing packages listed in `require-dev`. The autoloader generation skips the `autoload-dev` rules.
+
     - [Composer Docs - install](https://getcomposer.org/doc/03-cli.md#install)
 
     Adding the option `--profile` "displays timing and memory usage information."  Composer can be slow, generally, and this will give you piece of mind that it's actually doing something.  Also, useful to see exactly what's taking so long. :)
 
     - [Composer Docs - global options](https://getcomposer.org/doc/03-cli.md#global-options)
+
+
 
 ---------------------------------------------
 - `$ composer update`
