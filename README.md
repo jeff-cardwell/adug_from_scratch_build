@@ -59,9 +59,10 @@
 
     ----------------------------------
     ```shell
-    Minimum Stability []:
+    Minimum Stability []: dev
     ```
     > This defines the default behavior for filtering packages by stability.
+    > The suggested value _dev_ above is provided to ease contributed module installation.
 
     [Composer Docs - Minimum Stability](https://getcomposer.org/doc/04-schema.md#minimum-stability)
 
