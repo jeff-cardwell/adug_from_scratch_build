@@ -494,3 +494,24 @@
 3. Install Drupal
 
     [Instructions from earlier in this document](#how-to-call-a-site-specific-install-of-drush-when-installing-drupal)
+
+## How to install a contributed modules
+
+1. Install module via Composer
+
+    ```shell
+    $ composer require drupal/{module name}
+    ```
+
+2. Verify changes to `composer.json` and `composer.lock`
+
+    ```shell
+    $ git status
+    ```
+
+3. Add and commit changes to your repo
+
+    ```shell
+    $ git add .
+    $ git commit
+    ```
